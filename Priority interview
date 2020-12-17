@@ -1,0 +1,37 @@
+// #Hackerearth problem 
+/*#Microsoft has come to hire interns from your college. N students got shortlisted out of which few were males and a few females. All the students have been assigned talent levels. Smaller the talent level, lesser is your chance to be selected. Microsoft wants to create the result list where it wants the candidates sorted according to their talent levels, but there is a catch. This time Microsoft wants to hire female candidates first and then male candidates.
+
+the task is to create a list where first all female candidates are sorted in a descending order and then male candidates are sorted in a descending order.*/
+
+
+#include <iostream>
+#include<algorithm>
+#include<vector>
+#include <string>
+using namespace std;
+int main() {
+int N;
+cin>>N;
+bool gender;
+int score;
+vector <int> arr_male;
+vector <int> arr_female;
+for(int i=0;N>i;i++){
+  cin>>gender;
+  cin>>score;
+    if(gender==0)
+       
+       arr_female.push_back(score);
+    if(gender==1)
+       
+       arr_male.push_back(score);
+} 
+  sort(arr_female.begin(), arr_female.end(), greater<int>());
+  sort(arr_male.begin(), arr_male.end(), greater<int>());
+
+    for (int i=0;i<arr_female.size();i++) 
+        cout << arr_female[i] << " ";
+       for (int i=0;i<arr_male.size();i++) 
+        cout << arr_male[i] << " ";  
+        return 0;
+}
