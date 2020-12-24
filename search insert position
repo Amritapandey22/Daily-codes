@@ -1,0 +1,48 @@
+/* LEETCODE 35. Search Insert Position */
+
+/* LENGTHY ONE  */
+
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int i, j,k;
+        for( i=0;i<nums.size();i++){
+            if(nums[i]==target){
+                return i;
+                 break;
+            }
+        }
+        
+        nums.push_back(target);
+        sort(nums.begin(),nums.end());
+        for( j=0;j<nums.size();j++){
+            if(nums[j]==target)
+                break;
+             
+        }
+        return j;
+        
+        
+    }
+};
+
+/* EASY APPROACH */
+
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+{
+    int result = -1;
+    for(int i = 0; i < nums.size(); i++)
+    { if(target <= nums[i]){
+        result = i;
+            return result;}
+    }
+    
+   return nums.size();
+    
+    
+}
+
+  }
+};
