@@ -1,0 +1,25 @@
+/* LEETCODE 520. Detect Capital */
+
+class Solution {
+public:
+    bool detectCapitalUse(string word) {
+      int i=0,count=0;
+        for(i=0;i<word.size();i++){
+            if(isupper(word[i]))
+                ++count;
+        }
+        if (isupper(word[0])){
+           if(count==word.size() || count==1)
+            return true;
+        }
+        else if (islower(word[0])){
+            if(count==0)
+                return true;
+        }
+      
+            return false;
+            
+            
+        
+    }
+};
