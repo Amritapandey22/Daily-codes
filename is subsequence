@@ -1,0 +1,23 @@
+  /* LEETCODE 392. Is Subsequence */
+  
+  class Solution {
+public:
+    bool isSubsequence(string s, string t) {
+        int slength=s.size(),tlength=t.size(),i=0,j=0;
+        bool search;
+        while(i<tlength){
+            if(t[i]==s[j])
+                j++;
+            i++;
+                
+        }
+        if (j!=slength)
+            return false;
+        else 
+            return true;
+        
+      
+        
+        
+    }
+};
