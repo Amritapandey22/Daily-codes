@@ -1,0 +1,19 @@
+/* LEETCODE 643. Maximum Average Subarray */
+
+class Solution {
+public:
+    double findMaxAverage(vector<int>& nums, int k) {
+        int i=0;
+        double sum=0,maxsum=0;
+        for(int j=0;j<k;j++){
+            sum+=nums[j];
+        }
+        maxsum=sum;
+        for(i=k;i<nums.size();i++){
+            sum=sum+nums[i]-nums[i-k];
+            maxsum=max(sum,maxsum);
+        }
+        double maxavg=maxsum/k;
+        return maxavg;
+    }
+};
