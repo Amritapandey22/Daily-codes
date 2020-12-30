@@ -1,0 +1,24 @@
+/* LEETCODE */
+
+class Solution {
+public:
+    int dominantIndex(vector<int>& nums) {
+        int maxindex,maxnum=0,i;
+        if (nums.size()<=1)
+            return 0;
+        for(i=0;i<nums.size();i++)
+        {
+            if(nums[i]>maxnum){
+                maxnum=nums[i];
+                maxindex=i;
+            }
+        }
+        for(int j=0;j<nums.size();j++)
+        {
+            if(nums[j]!=maxnum && (2*nums[j])>maxnum)
+                maxindex=-1;
+        }
+        return maxindex;
+        
+    }
+};
