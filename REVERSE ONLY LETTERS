@@ -1,0 +1,24 @@
+/* LEETCODE */
+class Solution {
+public:
+    string reverseOnlyLetters(string S) {
+        int j= S.length()-1;
+        for(int i=0;i<j;){
+            if(isalpha(S[i]) && isalpha(S[j]))
+            {swap(S[i],S[j]);
+                i++;
+                j--;}
+            else{
+            if(isalpha(S[i]))
+                i=i;
+            else 
+                i++;
+            if(isalpha(S[j]))
+                j=j;
+            else 
+                j--;
+            }
+        }
+        return S;
+    }
+};
