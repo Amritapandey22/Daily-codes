@@ -1,0 +1,24 @@
+/* LEETCODE 1346. Check If N and Its Double Exist  */
+
+class Solution {
+public:
+    bool checkIfExist(vector<int>& arr) {
+        int i,j;
+        bool double_exist=false;
+        for(i=0;i<arr.size();i++){
+            for(j=0;j<arr.size();j++){
+                if((i!=j) &&(2*arr[j]==arr[i])){
+                    double_exist =true;
+                    
+                    break;
+                }
+                
+            }
+                
+        }
+        if( double_exist)
+            return true;
+        return false;
+        
+    }
+};
