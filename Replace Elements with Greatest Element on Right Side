@@ -1,0 +1,15 @@
+/* LEETCODE 1299. Replace Elements with Greatest Element on Right Side */ 
+
+class Solution {
+public:
+    vector<int> replaceElements(vector<int>& arr) {
+        int gr = -1,a=-1,i=arr.size()-1;
+        while(i>-1){
+            a=arr[i];
+            arr[i]=gr;
+            gr=max(a,gr);
+            i-=1;
+        }
+        return arr;
+    }
+};
