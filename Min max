@@ -1,0 +1,29 @@
+ Hackerearth :  https://www.hackerearth.com/practice/algorithms/searching/linear-search/practice-problems/algorithm/min-max-8/  */
+ 
+ 
+ #include<bits/stdc++.h>
+using namespace std;
+int main ()
+{
+    int n,sum=0;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+        sum+=arr[i];
+    }
+
+    int maxsum,maximumsum=0,minimumsum=INT_MAX,minsum;
+    for(int i=0;i<n;i++){
+        maxsum=sum-arr[i];
+        maximumsum=max(maximumsum,maxsum);
+    }
+
+        for(int i=0;i<n;i++){
+        minsum=sum-arr[i];
+        minimumsum=min(minimumsum,minsum);
+    }
+         
+      cout<<minimumsum<<" "<<maximumsum<<endl;   
+    
+}
