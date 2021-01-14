@@ -1,0 +1,48 @@
+ /* Hackeraerth : https://www.hackerearth.com/practice/algorithms/searching/linear-search/practice-problems/algorithm/yet-another-easy-problem-1f3273a0/  */
+ 
+ #include<iostream>
+using namespace std;
+int hexdecimalsum(int n){
+    
+    int sum=0;
+    // convert to hexadec
+    while(n!=0){
+        int temp=n%16;
+        sum+=temp;
+        n=n/16;
+        
+    }
+    return sum;
+}
+
+int gcd(int n,int m){
+    int gcdvalue;
+    for(int i=1;i<=n && i<=m;i++){
+        if(n%i==0 && m%i==0)
+          {
+                gcdvalue=i;
+          }
+    }
+    return gcdvalue;
+}
+int main ()
+{
+    int n,count=0;
+   
+    cin>>n;
+    while(n!=0){
+        count=0;
+        int lower,higher;
+        cin>>lower>>higher;
+        for(int i=lower;i<=higher;i++){
+            int hexsum=hexdecimalsum(i);
+            
+            if(gcd(i,hexsum)>1){count++;}         
+             
+
+        }
+        cout<<count<<endl;
+        n--;
+        
+    }
+}
