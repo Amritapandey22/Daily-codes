@@ -1,0 +1,63 @@
+/*  Hackerearth : https://www.hackerearth.com/practice/algorithms/searching/linear-search/practice-problems/algorithm/square-transaction-20/  */
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main()
+
+{
+
+int t;
+
+cin>>t;
+
+long a[t];
+
+for(int i=0;i<t;i++)
+
+{
+
+cin>>a[i];
+
+}
+
+int q;
+
+cin>>q;
+
+for(int i=0;i<q;i++)
+
+{
+
+int target;
+
+cin>>target;
+
+int sum=0,count=0;
+
+for(int j=0;j<t&&sum<target;j++)
+
+{
+
+sum+=a[j];
+
+count++;
+
+}
+
+if(sum>=target)
+
+cout<<count<<endl;
+
+else
+
+cout<<-1<<endl ;
+
+}
+
+return 0;
+
+ 
+
+}
