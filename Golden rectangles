@@ -1,0 +1,26 @@
+/* Hackerearth : https://www.hackerearth.com/practice/algorithms/searching/linear-search/practice-problems/2/?sort_by=partially%20solved&p_level=   */
+
+
+
+#include<iostream>
+using namespace std;
+int main ()
+{
+    int n,count=0;
+   
+    cin>>n;
+    while(n!=0){
+        double w,h;
+        cin>>w>>h;
+         if(w>h && (w/h>=1.6 && w/h<=1.7)){
+             count++;
+         }
+         else if(h>w && (h/w>=1.6 && h/w<=1.7)){
+             count++;
+         }
+         n--;
+        
+    }
+    cout<<count<<endl;
+    return 0;
+}
