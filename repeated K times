@@ -1,0 +1,25 @@
+/* Hackerearth :  https://www.hackerearth.com/practice/algorithms/searching/linear-search/practice-problems/algorithm/repeated-k-times/ */
+
+#include<bits/stdc++.h>
+#define long long ll
+using namespace std;
+int main ()
+{
+     int n,i,count=0;
+    cin>>n;
+    int arr[n];
+    for(i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int k;
+    cin>>k;
+    sort(arr,arr+n);
+    for(i=0;i+k-1<n;i++){
+        if(arr[i+k-1]==arr[i])
+           {
+               cout<<arr[i];
+               break;
+           }
+    }
+    return 0;
+}
