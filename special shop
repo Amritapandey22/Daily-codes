@@ -1,0 +1,24 @@
+/*  Hackerearth :  https://www.hackerearth.com/practice/algorithms/searching/linear-search/practice-problems/algorithm/special-shop-69904c91/submissions/   */
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main ()
+{
+    int n;
+    
+    cin>>n;
+    while(n--){
+        int n,a,b,cost=0;
+        cin>>n>>a>>b;
+        int finalcost=INT_MAX;
+        for(int i=0;i<=n;i++){
+            cost=(a*i*i)+(b*(n-i)*(n-i));
+            finalcost=min(finalcost,cost);
+
+        }
+
+        cout<<finalcost<<endl;
+        
+    }
+}
