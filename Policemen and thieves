@@ -1,0 +1,69 @@
+/*   hackerearth :  https://www.hackerearth.com/practice/algorithms/searching/linear-search/practice-problems/algorithm/joker-and-thieves-53e59f4a/    */
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+
+
+
+int t;cin>>t;
+
+while(t--){
+
+int n,k;cin>>n>>k;
+
+char A[n+1][n+1];
+
+for(int i = 1; i<=n; i++){
+
+for(int j = 1; j<=n; j++){
+
+cin>>A[i][j];
+
+}
+
+}
+
+int thieve = 0;
+
+for(int i = 1; i<=n; i++){
+
+for(int j = 1; j<=n; j++){
+
+if(A[i][j]=='P'){
+
+int min_step = 1;
+
+int step = max(min_step,j-k);
+
+while(step<=min(j+k,n)){
+
+if(A[i][step]=='T'){
+
+A[i][step] = 'S';
+
+thieve++;
+
+break;
+
+}
+
+step++;
+
+}
+
+}
+
+}
+
+}
+
+cout<<thieve<<endl;
+
+}
+
+return 0;
+
+}
