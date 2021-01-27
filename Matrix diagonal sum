@@ -1,0 +1,18 @@
+/* LEETCODE: 1572. Matrix Diagonal Sum */
+
+class Solution {
+public:
+    int diagonalSum(vector<vector<int>>& mat) {
+        int sum =0;
+        for(int i=0,j=0;i<mat[0].size();i++,j++)
+            sum += mat[i][j];
+
+        for(int i=0,j=mat[0].size()-1;i<mat[0].size();i++,j--)
+            sum += mat[i][j];
+        
+       
+         if((mat[0].size())%2 !=0)
+            sum -= mat[mat[0].size()/2][mat[0].size()/2];
+        return sum;
+    }
+};
