@@ -1,0 +1,53 @@
+/* HACKEREARTH : https://www.hackerearth.com/practice/algorithms/searching/binary-search/practice-problems/algorithm/monks-encounter-with-polynomial/  */
+
+Our monk, while taking a stroll in the park, stumped upon a polynomial ( A X2 + B X +C ) lying on the ground. The polynomial was dying! Being considerate, our monk tried to talk and revive the polynomial. 
+
+The polynomial said:
+I have served my purpose, and shall not live anymore. Please fulfill my dying wish. Find me the least non-negative integer Xo, 
+that shall make my value atleast K i.e., A Xo2 + B Xo + C >= K .
+
+Help our Monk fulfill the polynomial's dying wish!
+
+
+SOLUTION:
+
+#include<bits/stdc++.h>
+#define lli long long int 
+using namespace std;
+
+lli a,b,c,k;
+lli F(lli x){
+    return a*x*x +b*x+c;
+}
+ lli bsearch(){
+     if(c>=k)
+       return 0;
+     lli L=1;
+     lli H=ceil(sqrt(k));  
+
+    while(L<=H){
+        lli mid=(L+H)/2;
+     lli x=F(mid);
+     lli y=F(mid-1); 
+     
+
+     if(x>=k && y<k)
+     return mid;
+     else if(x<k)L=mid+1;
+     else H=mid-1;
+ } 
+ }
+int main ()
+{
+    int n;
+    
+    cin>>n;
+    while(n--){
+        
+        cin>>a>>b>>c>>k;
+        cout<<bsearch()<<endl;
+        
+    }
+
+    return 0;
+}
