@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int res=0;
+        for(int i=0;i<nums.size();i++){
+            if(i>0 && i<nums.size()-1){
+                if(nums[i]==nums[i+1]){
+                    res= nums[i];
+                      i=nums.size()-1;
+                    
+                }
+                    
+            }
+            if(i==0 && nums[0]==nums[1]){
+                res=nums[0];
+                i=nums.size()-1;
+            }
+               
+            if(i==nums.size()-1  && nums[nums.size()-1]==nums[nums.size()-2])
+                res=nums[nums.size()-1];
+        }
+        return res;
+    }
+};
