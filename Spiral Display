@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+ int main(){
+   
+  int n,m;
+  cout<<"enter\n"; 
+  cin>>n>>m;
+  int matrix[n][m];
+  cout<<"enter elements\n";
+  for(int i=0;i<n;i++) {
+      for(int j=0;j<m;j++)
+         cin>>matrix[i][j];
+  }
+  
+  int minr=0,minc=0,maxr=n-1,maxc=m-1;
+  int t=n*m;
+  int count=0,i,j;
+  while(minc<=maxc && minr<=maxr){
+      for(i=minr,j=minc;j<=maxc && (minc<=maxc && minr<=maxr);j++){   //right direcn
+          cout<<matrix[i][j]<<"\t";
+          
+      }
+      minr++;
+      for(i=minr,j=maxc;i<=maxr && (minc<=maxc && minr<=maxr);i++){   //down direcn
+          cout<<matrix[i][j]<<"\t";
+         
+      }
+       maxc--;
+      for(i=maxr,j=maxc;j>=minc && (minc<=maxc && minr<=maxr);j--){   //left direcn
+          cout<<matrix[i][j]<<"\t";
+        
+      }
+        maxr--;
+       for(i=maxr,j=minc;i>=minr && (minc<=maxc && minr<=maxr);i--){   //up direcn
+          cout<<matrix[i][j]<<"\t";
+          
+      }
+      minc++;
+  }
+
+
+     return 0;
+ }
