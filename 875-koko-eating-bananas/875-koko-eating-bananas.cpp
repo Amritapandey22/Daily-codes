@@ -1,27 +1,25 @@
 class Solution {
 public:
-    bool isPos(int mid,vector<int>& piles, int h){
-        int totH=0;
-        for(int e:piles){
-            int time=e/mid;
-            if(e%mid!=0)time++;
-            totH+=time;
-            if(totH>h)return false;
+    bool canEatBanana(vector<int>& piles,int h,int k){
+        int hours=0;
+        for(int el:piles){
+            int time=ceil(1.0*el/k);            
+            hours+=time;
         }
         
-        return true;
+        return hours<=h;
     }
     int minEatingSpeed(vector<int>& piles, int h) {
+        int low=1;
+        int high,mid;
+        for(int el:piles)high=max(high,el);
         
-        int si=1,ei=(int)1e9;
-        while(si<ei){
-            int mid=si+(ei-si)/2;
-            
-            if(!isPos(mid,piles,h)) si=mid+1;
-            else ei=mid;
-            
+        while(low<=high){
+            mid=low+(high-low)/2;
+           if(canEatBanana(piles,h,mid))high=mid-1;
+           else low=mid+1;
         }
         
-        return si;
+        return low;
     }
 };
