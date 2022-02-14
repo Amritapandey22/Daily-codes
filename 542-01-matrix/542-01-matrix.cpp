@@ -22,10 +22,11 @@ public:
                 q.pop();
                 
                 int sr=idx/m,sc=idx%m;
-                mat[sr][sc]=level;
+               
                 for(auto d:dir){
                     int r=sr+d[0],c=sc+d[1];
                     if(r>=0 and c>=0 and r<n and c<m and !vis[r][c]){
+                        mat[r][c]=level+1;
                         q.push(r*m+c);
                         vis[r][c]=true;
                     }
