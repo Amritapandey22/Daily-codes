@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void getAnswers(vector<vector<int>>&res,vector<int>& cand,int trg,vector<int>ans,int idx){
+    void getAnswers(vector<vector<int>>&res,vector<int>& cand,int trg,vector<int>&ans,int idx){
         if(trg==0){
             res.push_back(ans);
             return;
