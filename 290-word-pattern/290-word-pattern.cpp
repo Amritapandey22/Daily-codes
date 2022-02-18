@@ -1,3 +1,17 @@
+// class Solution {
+// public:
+//     bool wordPattern(string pattern, string s) {
+//         vector<string> words;
+//         istringstream iss(s);
+//         string word;
+//         while (iss >> word) words.push_back(word);
+//         vector<int>26()
+//         unordered_set<char,string>mp;
+//     }
+// };
+
+
+
 class Solution {
 public:
     bool wordPattern(string pattern, string s) {
