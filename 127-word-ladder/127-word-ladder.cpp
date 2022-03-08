@@ -9,7 +9,7 @@ public:
         
         queue<string>q;
         q.push(beginWord);
-        int level=1;
+        int level=0;
         while(q.size()){
             int qsize=q.size();
             while(qsize--){
@@ -17,7 +17,7 @@ public:
                 q.pop();
                 st.erase(word);
                 //cout<<level<<endl;
-                if(word==endWord)return level;
+                if(word==endWord)return level+1;
                 for(int j=0;j<word.size();j++){
                     char ch=word[j];
                     for(int i=0;i<26;i++){
