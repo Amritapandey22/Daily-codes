@@ -26,6 +26,7 @@ class Solution
             minr++;
             //down
              for(int i=minr;i<=maxr and (--count !=0);i++){
+                
                 ans.push_back(mat[i][maxc]);
                
             }
