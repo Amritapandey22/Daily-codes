@@ -1,19 +1,22 @@
+
 class Solution {
 public:
-    TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
-        vector<TreeNode*> stk;
-        for (int i = 0; i < nums.size(); ++i)
-        {
-            TreeNode* cur = new TreeNode(nums[i]);
-            while (!stk.empty() && stk.back()->val < nums[i])
-            {
-                cur->left = stk.back();
-                stk.pop_back();
-            }
-            if (!stk.empty())
-                stk.back()->right = cur;
-            stk.push_back(cur);
+    TreeNode* helper(vector<int>& nums,int l,int r){
+        if(l>r)return nullptr;
+        int maxidx=l;
+        for(int i=l;i<=r;i++){
+            if(nums[i]>=nums[maxidx]) maxidx=i;
         }
-        return stk.front();
+        
+       TreeNode* root=new TreeNode(nums[maxidx]);
+        root->left=helper(nums,l,maxidx-1);
+        root->right=helper(nums,maxidx+1,r);
+        
+        return root;
+        
+    }
+    TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
+        
+        return helper(nums,0,nums.size()-1);
     }
 };
