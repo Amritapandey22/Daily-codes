@@ -1,25 +1,34 @@
+
 class Solution {
 public:
+    pair<int,ListNode*> getLen(ListNode* node){
+        ListNode* head=node;
+        ListNode*tail;
+        int len=0;
+        while(head){
+            ++len;
+            tail=head;
+            //cout<<tail->val;
+            head=head->next;
+        }
+        return {len,tail};
+    }
     ListNode* rotateRight(ListNode* head, int k) {
-        if(!head) return head;
+       if(k==0 or !head or !head->next)return head;
+       
+        auto info=getLen(head);
+        int len=info.first;
+        ListNode* tail=info.second;
+        //cout<<tail->val;
+       tail->next=head;
+        k=k%len;
+        ListNode *temp=head;
+        ListNode *p=head;
+        for(int i=1;i<len-k;i++)temp=temp->next;
+        p=temp->next;temp->next=nullptr;
         
-        int len=1; // number of nodes
-        ListNode *newH, *tail;
-        newH=tail=head;
+        return p;
         
-        while(tail->next)  // get the number of nodes in the list
-        {
-            tail = tail->next;
-            len++;
-        }
-        tail->next = head; // circle the link
-
-        if(k %= len) 
-        {
-            for(auto i=0; i<len-k; i++) tail = tail->next; // the tail node is the (len-k)-th node (1st node is head)
-        }
-        newH = tail->next; 
-        tail->next = NULL;
-        return newH;
+        
     }
 };
