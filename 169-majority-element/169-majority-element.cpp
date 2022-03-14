@@ -1,16 +1,20 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        unordered_map<int,int>mp;
-        int ans=0,fans;
-        for(int el:nums){
-           mp[el]++;
-            if(mp[el]>ans){
-                ans=mp[el];
-                fans=el;
+        int val=nums[0];
+        int count=1;
+        int n=nums.size();
+        for(int i=1;i<n;i++){
+            if(val==nums[i])count++;
+            else count--;//pairing done or we can say ki kisi aur element ne
+            // counter kr dia
+            
+            if(count==0){
+                val=nums[i];
+                count=1;
             }
         }
         
-        return fans;
+        return val;
     }
 };
