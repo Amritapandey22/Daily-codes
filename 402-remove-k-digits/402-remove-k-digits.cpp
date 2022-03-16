@@ -1,19 +1,32 @@
 class Solution {
 public:
-   string removeKdigits(string num, int k) {
-       string ans = "";                                         // treat ans as a stack in below for loop
-       
-       for (char c : num) {
-           while (ans.length() && ans.back() > c && k) {
-               ans.pop_back();                                  // make sure digits in ans are in ascending order
-               k--;                                             // remove one char
-           }
-           
-           if (ans.length() || c != '0') { ans.push_back(c); }  // can't have leading '0'
-       }
-       
-       while (ans.length() && k--) { ans.pop_back(); }          // make sure remove k digits in total
-       
-       return ans.empty() ? "0" : ans;
-}
+    string removeKdigits(string num, int k) {
+        stack<char>st;
+        if(k==num.size())return "0";
+        
+        for(int i=0;i<num.size();i++){
+            while(k>0 and st.size()!=0 and num[i]<st.top()){
+                --k;
+                st.pop();
+            }
+        st.push(num[i]);    
+        }
+        
+        while(k!=0 and st.size()!=0){
+            --k;
+            st.pop();
+        }
+         num="";
+        while(st.size()!=0){
+            num+=st.top();
+            st.pop();
+        }
+        int i=0;
+        reverse(num.begin(),num.end());
+        //preceding zeroes
+        while(num[i]=='0')i++;
+        
+        string ans=num.substr(i);
+        return ans=="" ? "0":ans;
+    }
 };
